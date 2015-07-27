@@ -11,7 +11,7 @@ class SendEmailsController < ApplicationController
       @subject = params[:g][:subject]
       @body = params[:g][:body]
       SendMail.welcome(@from, @to, @subject, @body).deliver_now
-      k
+    
     end
   end
 
