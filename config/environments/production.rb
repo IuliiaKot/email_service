@@ -77,7 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  host = 'vast-harbor-4352.herokuapp.com'
+  host = 'sheltered-refuge-8625.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -86,8 +86,8 @@ Rails.application.configure do
   domain: "heroku.com",
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: ENV["MANDRILL_USERNAME_DEV"], #{}"kotlenko.julia@gmail.com",
-  password:  ENV["MANDRILL_PASSWORD_DEV"]#{}"dNueHjRbdDfoJV444KWbcw"
+  user_name: ENV["MANDRILL_USERNAME"], #{}"kotlenko.julia@gmail.com",
+  password:  ENV["MANDRILL_APIKEY"]#{}"dNueHjRbdDfoJV444KWbcw"
 }
 
 end
