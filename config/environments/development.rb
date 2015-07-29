@@ -38,18 +38,32 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+#
+#   config.action_mailer.default_url_options = { host: "localhost:3000" }
+#   config.action_mailer.delivery_method = :smtp
+#   config.action_mailer.smtp_settings = {
+#   address: "smtp.mandrillapp.com",
+#   port: 587,
+#   domain: "gmail.com",
+#   authentication: "plain",
+#   enable_starttls_auto: true,
+#   user_name: ENV["MANDRILL_USERNAME_DEV"],
+#   password:  ENV["MANDRILL_PASSWORD_DEV"]
+# }
 
-  config.action_mailer.default_url_options = { host: "localhost:3000" }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  address: "smtp.mandrillapp.com",
-  port: 587,
-  domain: "gmail.com",
-  authentication: "plain",
-  enable_starttls_auto: true,
-  user_name: ENV["MANDRILL_USERNAME_DEV"], #{}"kotlenko.julia@gmail.com",
-  password:  ENV["MANDRILL_PASSWORD_DEV"]#{}"dNueHjRbdDfoJV444KWbcw"
-}
 
+# config.action_mailer.raise_delivery_errors = true
+#   config.action_mailer.delivery_method = :smtp
+#   host = 'localhost:3000'
+#   config.action_mailer.default_url_options = { host: host }
+#   ActionMailer::Base.smtp_settings = {
+#     :address        => 'smtp.sendgrid.net',
+#     :port           => '587',
+#     :authentication => :plain,
+#     :user_name      => ENV['SENDGRID_USERNAME'],
+#     :password       => ENV['SENDGRID_PASSWORD'],
+#     :domain         => 'gmail.com',
+#     :enable_starttls_auto => true
+#   }
 
 end
