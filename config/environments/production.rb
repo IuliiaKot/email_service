@@ -90,20 +90,20 @@ Rails.application.configure do
 #   password:  ENV["MANDRILL_APIKEY"]#{}"dNueHjRbdDfoJV444KWbcw"
 # }
 
-
-config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  host = 'sheltered-refuge-8625.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host }
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com',
-    :enable_starttls_auto => true
-  }
+# 
+# config.action_mailer.raise_delivery_errors = true
+#   config.action_mailer.delivery_method = :smtp
+#   host = 'sheltered-refuge-8625.herokuapp.com'
+#   config.action_mailer.default_url_options = { host: host }
+#   ActionMailer::Base.smtp_settings = {
+#     :address        => 'smtp.sendgrid.net',
+#     :port           => '587',
+#     :authentication => :plain,
+#     :user_name      => ENV['SENDGRID_USERNAME'],
+#     :password       => ENV['SENDGRID_PASSWORD'],
+#     :domain         => 'heroku.com',
+#     :enable_starttls_auto => true
+#   }
 
 
 end
