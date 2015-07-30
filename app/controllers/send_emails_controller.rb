@@ -16,17 +16,17 @@ class SendEmailsController < ApplicationController
       @body = params[:g][:body]
       #SendMail.welcome(@from, @to, @subject, @body).deliver_now
       # require "httparty"
-      #  url = "https://sendgrid.com/api/mail.send.json"
-      # #
-      # response = HTTParty.post url, :body => {
-      #   "api_user" => ENV['SENDGRID_USERNAME'],
-      #   "api_key" =>  ENV['SENDGRID_PASSWORD'],
-      #   "to" => @to,
-      #   "from" => @from,
-      #   "subject" => @subject,
-      #   "text" => @body
-      # }
-      # if response["message"] != 'success'
+      url = "https://sendgrid.com/api/mail.send.json"
+
+      response = HTTParty.post url, :body => {
+        "api_user" => ENV['SENDGRID_USERNAME'],
+        "api_key" =>  ENV['SENDGRID_PASSWORD'],
+        "to" => @to,
+        "from" => @from,
+        "subject" => @subject,
+        "text" => @body
+      }
+      if response["message"] != 'success'
         #  "api_user" => "key-6c33972ee3f7400fcde10f3b24fbcba5",
 
               # mg_client = Mailgun::Client.new ENV['MAILGUN_API_KEY']
@@ -60,12 +60,10 @@ class SendEmailsController < ApplicationController
           :text => "Text body",
           :html => "<b>HTML</b> version of the body!"
       # response.body
-    #end
+    end
     end
   end
 
   def create
-    #render 'index'
-    #SendMail.welcome.deliver_now
-  end
+
 end
