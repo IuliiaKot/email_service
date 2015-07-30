@@ -51,7 +51,7 @@ class SendEmailsController < ApplicationController
         # request.set_form_data(data)
         # response = http.request(request)
 
-        api = "https://api:#{ENV['MAILGUN_API_KEY']}@api.mailgun.net/v2/sandbox4bd8677766bb465eb60b0bb14596b98c.mailgun.org"
+        api = "https://api:#{ENV['MAILGUN_API_KEY']}@api.mailgun.net/v2/#{ENV['MAILGUN_DOMAIN']}"
 
         RestClient.post api+"/messages",
           :from => @from,
