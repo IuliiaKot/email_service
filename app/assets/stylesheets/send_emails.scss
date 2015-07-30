@@ -10,8 +10,11 @@ html {
 background-size: cover;
 }
 #wrapper {
+
        width:450px;
        margin:0 auto;
+
+       margin-top: 150px;
        font-family:Verdana, sans-serif;
    }
    legend {
@@ -31,7 +34,7 @@ background-size: cover;
        background: #fff;
        background: -moz-linear-gradient(#fff, #f9fdff);
        background: -o-linear-gradient(#fff, #f9fdff);
-       background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f9fdff)); 
+       background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#f9fdff));
        background: -webkit-linear-gradient(#fff, #f9fdff);
        padding:20px;
        border-color:rgba(4, 129, 177, 0.4);
@@ -98,7 +101,7 @@ background-size: cover;
    .textarea {
        padding:3px;
        width:96%;
-       height:100px;
+       height:150px;
    }
    .textarea:focus {
        background:#ebf8fd;
