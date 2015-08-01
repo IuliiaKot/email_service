@@ -33,8 +33,6 @@ class SendEmailsController < ApplicationController
           :subject => "This is subject",
           :text => "Text body",
           :html => "<b>HTML</b> version of the body!"
-      # response.body
-  
     end
     end
   end
