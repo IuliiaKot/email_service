@@ -86,11 +86,11 @@ Rails.application.configure do
 #   domain: "heroku.com",
 #   authentication: "plain",
 #   enable_starttls_auto: true,
-#   user_name: ENV["MANDRILL_USERNAME"], #{}"kotlenko.julia@gmail.com",
-#   password:  ENV["MANDRILL_APIKEY"]#{}"dNueHjRbdDfoJV444KWbcw"
+#   user_name: ENV["MANDRILL_USERNAME"],
+#   password:  ENV["MANDRILL_APIKEY"]
 # }
 
-# 
+#
 # config.action_mailer.raise_delivery_errors = true
 #   config.action_mailer.delivery_method = :smtp
 #   host = 'sheltered-refuge-8625.herokuapp.com'
