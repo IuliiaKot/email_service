@@ -12,10 +12,11 @@ class SendEmailsController < ApplicationController
       @info = "g"
       @from = params[:g][:from]
       @to = params[:g][:to]
+      #@to = ['kotlenko.julia@gmail.com', 'iuliia.kotlenko@hotmail.com']
       @subject = params[:g][:subject]
       @body = params[:g][:body]
 
-       url = "https://sendgrid.com/api/mail.send.json"
+      url = "https://sendgrid.com/api/mail.send.json"
       response = HTTParty.post url, :body => {
         "api_user" => ENV['SENDGRID_USERNAME'],
         "api_key" =>  ENV['SENDGRID_PASSWORD'],
@@ -24,16 +25,25 @@ class SendEmailsController < ApplicationController
         "subject" => @subject,
         "text" => @body
       }
-      if response["message"] != 'success'
-        api = "https://api:#{ENV['MAILGUN_API_KEY']}@api.mailgun.net/v2/#{ENV['MAILGUN_DOMAIN']}"
 
-        RestClient.post api+"/messages",
-          :from => @from,
-          :to => @to,
-          :subject => "This is subject",
-          :text => "Text body",
-          :html => "<b>HTML</b> version of the body!"
-    end
+
+       if response["message"] != 'success'
+        api = "https://api:#{ENV['MAILGUN_API_KEY']}@api.mailgun.net/v2/#{ENV['MAILGUN_DOMAIN']}/messages"
+
+        response = HTTParty.post api, :body => {
+          "to" => @to,
+          "from" => @from,
+          "subject" => @subject,
+          "text" => @body
+        }
+
+        # RestClient.post api+"/messages",
+        #   :from => @from,
+        #   :to => @to,
+        #   :subject => "This is subject",
+        #   :text => "Text body",
+        #   :html => "<b>HTML</b> version of the body!"
+       end
     end
   end
 
