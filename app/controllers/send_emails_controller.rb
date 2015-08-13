@@ -5,16 +5,14 @@ require 'rest-client'
 class SendEmailsController < ApplicationController
 
   def index
-    if params[:g].nil?
-      @info = "g" #= {:from => "", :to => "", :subject => "", :body => ""}
-
+    if params[:information].nil?
+       @info = "information" #= {:from => "", :to => "", :subject => "", :body => ""}
     else
-      @info = "g"
-      @from = params[:g][:from]
-      @to = params[:g][:to]
-      #@to = ['kotlenko.julia@gmail.com', 'iuliia.kotlenko@hotmail.com']
-      @subject = params[:g][:subject]
-      @body = params[:g][:body]
+      @info = "information"
+      @from = params[:information][:from]
+      @to = params[:information][:to].gsub(" ", "").split(",")
+      @subject = params[:information][:subject]
+      @body = params[:information][:body]
 
       url = "https://sendgrid.com/api/mail.send.json"
       response = HTTParty.post url, :body => {
@@ -23,11 +21,9 @@ class SendEmailsController < ApplicationController
         "to" => @to,
         "from" => @from,
         "subject" => @subject,
-        "text" => @body
+        "text" => @body,
       }
-
-
-       if response["message"] != 'success'
+      if response["message"] != 'success'
         api = "https://api:#{ENV['MAILGUN_API_KEY']}@api.mailgun.net/v2/#{ENV['MAILGUN_DOMAIN']}/messages"
 
         response = HTTParty.post api, :body => {
@@ -36,14 +32,12 @@ class SendEmailsController < ApplicationController
           "subject" => @subject,
           "text" => @body
         }
-
-        # RestClient.post api+"/messages",
-        #   :from => @from,
-        #   :to => @to,
-        #   :subject => "This is subject",
-        #   :text => "Text body",
-        #   :html => "<b>HTML</b> version of the body!"
-       end
+      end
+      if response["message"] == 'success'
+         flash[:success] = "Your email has been sent"
+      else
+        flash[:error] = "Sorry, you email has not benn sent"
+      end
     end
   end
 
@@ -51,4 +45,5 @@ class SendEmailsController < ApplicationController
     #render 'index'
     #SendMail.welcome.deliver_now
   end
+
 end

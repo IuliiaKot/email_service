@@ -6,6 +6,7 @@ Rails.application.routes.draw do
    #root 'send_emails#create'
     root 'send_emails#index'
     post '/' => 'send_emails#index'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

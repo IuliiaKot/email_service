@@ -1,9 +1,17 @@
 <!DOCTYPE HTML >
 <html lang="en">
-<head>
-</head>
+  <head>
+  </head>
 
 <body>
+
+    <% if flash[:success] %>
+      <div class="success"><%= flash[:success] %></div>
+    <% end %>
+    <% if flash[:error] %>
+      <div class="fail"><%= flash[:success] %></div>
+    <% end %>
+
     <div id="wrapper">
         <%= form_for(@info) do |f| %>
             <fieldset>
@@ -12,7 +20,7 @@
                     <div><%= f.email_field :from, placeholder: "From", class: "text" %></div>
                 </div>
                 <div>
-                    <div><%= f.email_field :to, placeholder: "To", class: "text"%></div>
+                    <div><%= f.text_field :to, placeholder: "To", class: "text"%></div>
                 </div>
                 <div>
                      <div><%= f.text_field :subject, placeholder: "Subject", class: "text" %></div>
@@ -21,9 +29,11 @@
                     <div><%= f.text_area :body, placeholder: "Message", class: "textarea" %></div>
                 </div>
 
-              <%= f.submit "Send"%>
+            <%= f.submit "Send"%>
             </fieldset>
         <% end %>
     </div>
-</body>
+
+
+  </body>
 </html>
