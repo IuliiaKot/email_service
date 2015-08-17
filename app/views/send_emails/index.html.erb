@@ -5,15 +5,16 @@
 
 <body>
 
-    <% if flash[:success] %>
+    <% if (flash[:success] == 'success') %>
       <div class="success"><%= flash[:success] %></div>
     <% end %>
-    <% if flash[:error] %>
+    <% if (flash[:error] == 'error') %>
       <div class="fail"><%= flash[:success] %></div>
     <% end %>
 
     <div id="wrapper">
         <%= form_for(@info) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
             <fieldset>
                 <legend>Send a letter</legend>
                 <div>
