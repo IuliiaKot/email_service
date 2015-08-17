@@ -3,7 +3,7 @@ require "net/https"
 require "uri"
 require 'rest-client'
 class SendEmailsController < ApplicationController
-  validate :from_s
+
   def index
     if params[:information].nil?
        @info = "information" #= {:from => "", :to => "", :subject => "", :body => ""}
@@ -43,7 +43,7 @@ class SendEmailsController < ApplicationController
 
 
   def from_s
-    
+
   end
   def create
     #render 'index'
