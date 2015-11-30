@@ -2,7 +2,6 @@ Deployed version on Heroku:https://sheltered-refuge-8625.herokuapp.com/
 
 Email Service - for the Uber coding challenge
 
-This is one of the Uber coding challenge project.
 
 ###The problem:
 
