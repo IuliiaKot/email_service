@@ -17,7 +17,6 @@ If I had more time, I would...
 
       1. Improve the style for desktop view and add style for mobile devices.
       2. Add attachments, several recipients.
-      4. Add several recipients.
-      5. Implement a endpoint to track the emails are sent/ not sent.
+      3. Implement a endpoint to track the emails are sent/ not sent.
 
 
